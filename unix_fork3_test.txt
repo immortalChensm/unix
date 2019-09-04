@@ -1,0 +1,7 @@
+12345678910
+hello,world 
+hello,japanese 
+hello,ameriaan
+hello,korean
+hello,france
+hello,jim  

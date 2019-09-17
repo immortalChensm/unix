@@ -5,7 +5,7 @@
 void *talk()
 {
 	int k=0;
-	while(1){
+	while(k<20){
 		printf("[%d,%lu]i am talking %d\n",getpid(),pthread_self(),k++);
 		sleep(1);
 	}
@@ -14,7 +14,7 @@ void *talk()
 void *say()
 {
 	int m=0;
-	while(1){
+	while(m<10){
 		printf("[%d,%lu]i am saying %d\n",getpid(),pthread_self(),m++);
 		sleep(1);
 	}
@@ -26,11 +26,15 @@ int main()
 	pthread_create(&t1,NULL,talk,NULL);
 	pthread_create(&t2,NULL,say,NULL);
 	void *retval1,*retval2;
-	pthread_join(t1,&retval1);
-	pthread_join(t2,&retval2);
+	//pthread_join(t1,&retval1);
+	//pthread_join(t2,&retval2);
 
 
 	printf("main thread:%d,%lu\n",getpid(),pthread_self());
+
+	pthread_join(t1,&retval1);
+
+	pthread_join(t2,&retval2);
 
 	return 0;
 	

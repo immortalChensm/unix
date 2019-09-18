@@ -2,11 +2,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
+int age=0;
 void *talk()
 {
 	int k=0;
+	
 	while(k<20){
-		printf("[%d,%lu]i am talking %d\n",getpid(),pthread_self(),k++);
+		printf("[%d,%lu]i am talking %d,age=%d\n",getpid(),pthread_self(),k++,age++);
 		sleep(1);
 	}
 }
@@ -15,7 +18,7 @@ void *say()
 {
 	int m=0;
 	while(m<10){
-		printf("[%d,%lu]i am saying %d\n",getpid(),pthread_self(),m++);
+		printf("[%d,%lu]i am saying %d,age=%d\n",getpid(),pthread_self(),m++,age++);
 		sleep(1);
 	}
 }
